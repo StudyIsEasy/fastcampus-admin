@@ -1,5 +1,6 @@
 # FastCampus-JAVA 바이트 디그리 과정 
 
+
 * 패스트 캠퍼스 ERD 설계
   + 해당 프로젝트 내부에 fastcampus_study.mwd , fastcampus_study.sql
   두개의 파일이 존재 합니다. workbench로 mwd파일을 열어서 보시면 됩니다.
@@ -33,4 +34,5 @@ Lombok
   
 * * * 
 ### 1차 미니과제는 feature/first 라는 branch에 따로 들어 있습니다.
+##### 해당 코드는 정답이 아닙니다. 참고을 미리 알려 드립니다.
 * * *
