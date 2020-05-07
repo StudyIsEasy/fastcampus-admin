@@ -26,7 +26,7 @@ public class CourseService {
                 .teacherName(courseRequest.getTeacherName())
                 .teacherEmail(courseRequest.getTeacherEmail())
                 .teacherPhoneNumber(courseRequest.getTeacherPhoneNumber())
-                .amount(BigDecimal.valueOf(30000))
+                .amount(courseRequest.getAmount())
                 .build();
 
         return courseRepository.save(course);

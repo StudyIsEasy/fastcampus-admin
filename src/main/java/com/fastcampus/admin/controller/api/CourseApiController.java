@@ -21,7 +21,7 @@ public class CourseApiController {
     }
 
     @PostMapping("")
-    public Course create(CourseRequest courseRequest){
+    public Course create(@RequestBody CourseRequest courseRequest){
         return courseService.create(courseRequest);
     }
 
@@ -31,7 +31,7 @@ public class CourseApiController {
     }
 
     @PutMapping("")
-    public Course update(CourseRequest courseRequest){
+    public Course update(@RequestBody CourseRequest courseRequest){
         return courseService.update(courseRequest);
     }
 

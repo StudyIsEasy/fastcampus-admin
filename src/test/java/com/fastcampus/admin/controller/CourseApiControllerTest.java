@@ -1,6 +1,7 @@
 package com.fastcampus.admin.controller;
 
 import com.fastcampus.admin.model.enumclass.StudentStatus;
+import com.fastcampus.admin.model.http.CourseRequest;
 import com.fastcampus.admin.model.http.StudentRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
-public class StudentApiControllerTest {
+public class CourseApiControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -34,42 +36,43 @@ public class StudentApiControllerTest {
     public void createTest() throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        StudentRequest studentRequest = StudentRequest.builder()
-                .account("student01")
-                .email("student01@gmail.com")
-                .password("student01")
-                .phoneNumber("010-1111-1111")
+        CourseRequest courseRequest = CourseRequest.builder()
+                .title("Spring Boot Admin")
+                .teacherName("teacher")
+                .teacherEmail("teacher@gmail.com")
+                .teacherPhoneNumber("010-1111-1234")
+                .amount(BigDecimal.valueOf(30000))
                 .build();
 
         URI uri = UriComponentsBuilder.newInstance()
-                .path("/v1/student")
+                .path("/v1/course")
                 .build()
                 .toUri();
 
         mockMvc.perform(post(uri)
-                .content(objectMapper.writeValueAsString(studentRequest))
+                .content(objectMapper.writeValueAsString(courseRequest))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.status").value(StudentStatus.REGISTERED.toString()))
+                .andExpect(jsonPath("$.title").value("Spring Boot Admin"))
                 .andDo(print());
     }
 
     @Test
     public void readTest() throws Exception {
-        Long id = 8L;
+        Long id = 2L;
 
         Map<String, Long> urlParams = new HashMap<>();
         urlParams.put("id", id);
 
         URI uri = UriComponentsBuilder.newInstance()
-                .path("/v1/student/{id}")
+                .path("/v1/course/{id}")
                 .buildAndExpand(urlParams)
                 .toUri();
 
         mockMvc.perform(get(uri))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.status").value(StudentStatus.REGISTERED.toString()))
+                .andExpect(jsonPath("$.title").value("Spring Boot Admin"))
                 .andDo(print());
     }
 
@@ -77,38 +80,39 @@ public class StudentApiControllerTest {
     public void updateTest() throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        StudentRequest studentRequest = StudentRequest.builder()
-                .id(10L)
-                .account("student10")
-                .email("student10@gmail.com")
-                .password("student01")
-                .phoneNumber("010-1111-1111")
+        CourseRequest courseRequest = CourseRequest.builder()
+                .id(2L)
+                .title("Spring Boot Admin")
+                .teacherName("teacher")
+                .teacherEmail("teacher@gmail.com")
+                .teacherPhoneNumber("010-1111-1234")
+                .amount(BigDecimal.valueOf(60000))
                 .build();
 
         URI uri = UriComponentsBuilder.newInstance()
-                .path("/v1/student")
+                .path("/v1/course")
                 .build()
                 .toUri();
 
         mockMvc.perform(put(uri)
-                .content(objectMapper.writeValueAsString(studentRequest))
+                .content(objectMapper.writeValueAsString(courseRequest))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.account").value("student10"))
+                .andExpect(jsonPath("$.amount").value("60000"))
                 .andDo(print());
     }
 
     // TODO 현재의 DELETE 테스트는 제대로된 테스트가 아닙니다. 이유를 찾아보시고 알맞게 수정해주세요.
     @Test
     public void deleteTest() throws Exception {
-        Long id = 10L;
+        Long id = 1L;
 
         Map<String, Long> urlParams = new HashMap<>();
         urlParams.put("id", id);
 
         URI uri = UriComponentsBuilder.newInstance()
-                .path("/v1/student/{id}")
+                .path("/v1/course/{id}")
                 .buildAndExpand(urlParams)
                 .toUri();
 
