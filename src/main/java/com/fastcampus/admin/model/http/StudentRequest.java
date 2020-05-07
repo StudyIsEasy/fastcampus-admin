@@ -14,6 +14,7 @@ import javax.persistence.Enumerated;
 @Getter
 @Setter
 public class StudentRequest {
+    private Long id;                            // id
     private String account;                     // 수강생 계정
     private String password;                    // 수강생 계정 비밀번호
     private String email;                       // 수강생 이메일주소

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -29,5 +30,29 @@ public class StudentService {
                 .registeredAt(LocalDateTime.now())
                 .build();
         return studentRepository.save(student);
+    }
+
+    public Optional<Student> read(Long id){
+        return studentRepository.findById(id);
+    }
+
+    public Student update(StudentRequest studentRequest) {
+        return Optional.of(studentRequest.getId())
+                .map(studentRepository::findById)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .map(student ->{
+                    student.setAccount(studentRequest.getAccount());
+                    student.setPassword(studentRequest.getPassword());
+                    student.setEmail(studentRequest.getEmail());
+                    student.setPhoneNumber(studentRequest.getPhoneNumber());
+                    return student;
+                })
+                .map(studentRepository::save)
+                .orElseGet(()->null);
+    }
+
+    public void delete(Long id){
+        studentRepository.findById(id).ifPresent(studentRepository::delete);
     }
 }
