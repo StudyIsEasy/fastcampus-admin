@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/v1/course")
 public class CourseApiController {
@@ -24,7 +26,7 @@ public class CourseApiController {
     }
 
     @GetMapping("/{id}")
-    public Course read(@PathVariable Long id){
+    public Optional<Course> read(@PathVariable Long id){
         return courseService.read(id);
     }
 
