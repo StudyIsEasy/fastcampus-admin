@@ -1,6 +1,7 @@
 package com.fastcampus.admin.entity;
 
 import com.fastcampus.admin.model.enumclass.StudentStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedBy;
@@ -37,6 +38,7 @@ public class Student extends BaseEntity{
 
     private LocalDateTime unregisteredAt;       // 수강생 해지일자
 
+    @JsonIgnore
     @OneToMany(mappedBy = "student")
     private List<ApplyCourse> applyCourseList;  // 수강 강좌 목록
 

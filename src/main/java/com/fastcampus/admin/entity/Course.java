@@ -1,5 +1,6 @@
 package com.fastcampus.admin.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -29,7 +30,12 @@ public class Course extends BaseEntity{
 
     private BigDecimal amount;                      // 강좌 금액
 
+    @JsonIgnore
     @OneToMany(mappedBy = "course")
     private List<CourseDetail> courseDetailList;    // 강좌 상세 리스트
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "course")
+    private List<ApplyCourse> applyCourseList;      // 수강신청 강좌 리스트
 
 }

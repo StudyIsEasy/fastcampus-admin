@@ -1,5 +1,6 @@
 package com.fastcampus.admin.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -26,9 +27,13 @@ public class ApplyCourse extends BaseEntity{
 
     private LocalDateTime expireAt;                             // 강의 만료 일
 
+    @JsonIgnore
     @OneToMany(mappedBy = "applyCourse")
     private List<ApplyCourseDetail> applyCourseDetailList;      // 수강 강의 상세 사항
 
     @ManyToOne
     private Student student;                                    // 수강생
+
+    @ManyToOne
+    private Course course;                                      // 강좌
 }
