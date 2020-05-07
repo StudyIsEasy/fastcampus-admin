@@ -1,5 +1,6 @@
 package com.fastcampus.admin.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -19,6 +20,7 @@ public class CourseDetail extends BaseEntity{
 
     private String content;         // 강좌 상세 컨텐츠
 
+    @JsonIgnore
     @ManyToOne
     private Course course;          // 강좌
 

@@ -4,6 +4,6 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @Configurable
-@EnableJpaAuditing//(auditorAwareRef = "adminAuditorAware")
+@EnableJpaAuditing
 public class JpaConfig {
 }

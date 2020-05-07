@@ -15,6 +15,7 @@ import org.springframework.util.Assert;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+// TODO 다른 REPOSITORY 테스트도 추가해주세요
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @DisplayName("학생 repository 테스트")
