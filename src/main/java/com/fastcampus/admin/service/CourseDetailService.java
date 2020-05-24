@@ -1,7 +1,7 @@
 package com.fastcampus.admin.service;
 
 import com.fastcampus.admin.entity.CourseDetail;
-import com.fastcampus.admin.model.http.CourseDetailRequest;
+import com.fastcampus.admin.model.http.coursedetail.CourseDetailRequest;
 import com.fastcampus.admin.respository.CourseDetailRepository;
 import com.fastcampus.admin.respository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;

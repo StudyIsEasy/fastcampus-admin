@@ -1,8 +1,6 @@
 package com.fastcampus.admin.controller;
 
-import com.fastcampus.admin.model.enumclass.StudentStatus;
-import com.fastcampus.admin.model.http.CourseRequest;
-import com.fastcampus.admin.model.http.StudentRequest;
+import com.fastcampus.admin.model.http.course.CourseRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

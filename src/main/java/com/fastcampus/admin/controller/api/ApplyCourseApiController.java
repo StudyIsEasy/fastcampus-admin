@@ -1,7 +1,9 @@
 package com.fastcampus.admin.controller.api;
 
 import com.fastcampus.admin.entity.ApplyCourse;
-import com.fastcampus.admin.model.http.ApplyCourseRequest;
+import com.fastcampus.admin.model.http.applycourse.ApplyCourseRegisterRequest;
+import com.fastcampus.admin.model.http.applycourse.ApplyCourseRequest;
+import com.fastcampus.admin.model.http.applycourse.ApplyCourseStatusResponse;
 import com.fastcampus.admin.service.ApplyCourseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +40,15 @@ public class ApplyCourseApiController {
     public ResponseEntity delete(@PathVariable Long id){
         applyCourseService.delete(id);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity register(@RequestBody ApplyCourseRegisterRequest applyCourseRegisterRequest){
+        return applyCourseService.register(applyCourseRegisterRequest);
+    }
+
+    @GetMapping("/status")
+    public ApplyCourseStatusResponse status(@RequestParam("applyCourseId") Long applyCourseId, @RequestParam("studentId") Long studentId){
+        return applyCourseService.status(applyCourseId, studentId);
     }
 }

@@ -1,12 +1,11 @@
 package com.fastcampus.admin.service;
 
 import com.fastcampus.admin.entity.Course;
-import com.fastcampus.admin.model.http.CourseRequest;
+import com.fastcampus.admin.model.http.course.CourseRequest;
 import com.fastcampus.admin.respository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service

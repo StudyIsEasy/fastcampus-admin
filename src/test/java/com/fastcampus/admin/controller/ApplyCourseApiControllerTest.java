@@ -1,10 +1,7 @@
 package com.fastcampus.admin.controller;
 
-import com.fastcampus.admin.entity.ApplyCourse;
-import com.fastcampus.admin.model.http.ApplyCourseRequest;
-import com.fastcampus.admin.model.http.CourseRequest;
+import com.fastcampus.admin.model.http.applycourse.ApplyCourseRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.math.BigDecimal;
 import java.net.URI;
-import java.nio.charset.Charset;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -87,7 +82,7 @@ public class ApplyCourseApiControllerTest {
 
         ApplyCourseRequest applyCourseRequest = ApplyCourseRequest.builder()
                 .id(2L)
-                .progressRate(100f)
+                .progressRate(100)
                 .expireAt(LocalDateTime.now().toString())
                 .isComplete(true)
                 .build();

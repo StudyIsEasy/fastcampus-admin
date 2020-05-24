@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `fastcampus`.`apply_course` (
   `student_id` BIGINT(20) NOT NULL,
   `course_id` BIGINT(20) NOT NULL,
   `status` VARCHAR(50) NOT NULL,
-  `progress_rate` FLOAT NULL,
+  `progress_rate` DOUBLE NULL,
   `is_complete` tinyint NULL,
   `expire_at` DATETIME NULL,
   `created_at` DATETIME NOT NULL,
@@ -88,6 +88,8 @@ COMMENT = '수강강좌';
 CREATE TABLE IF NOT EXISTS `fastcampus`.`apply_course_detail` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `apply_course_id` BIGINT(20) NOT NULL,
+  `course_detail_id` BIGINT(20) NOT NULL,
+  `status` VARCHAR(50) NOT NULL,
   `created_at` DATETIME NOT NULL,
   `created_by` VARCHAR(20) NOT NULL,
   `updated_at` DATETIME NULL,

@@ -1,4 +1,4 @@
-package com.fastcampus.admin.model.http;
+package com.fastcampus.admin.model.http.coursedetail;
 
 import com.fastcampus.admin.entity.Course;
 import lombok.*;

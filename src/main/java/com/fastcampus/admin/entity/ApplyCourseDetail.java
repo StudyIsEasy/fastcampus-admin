@@ -17,4 +17,8 @@ public class ApplyCourseDetail extends BaseEntity{
 
     @ManyToOne
     private ApplyCourse applyCourse;        // 수강 강의
+
+    private Long courseDetailId;            // 강의 상세
+
+    private String status;
 }

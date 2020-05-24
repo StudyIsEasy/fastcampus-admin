@@ -1,4 +1,4 @@
-package com.fastcampus.admin.model.http;
+package com.fastcampus.admin.model.http.course;
 
 import lombok.*;
 import lombok.experimental.Accessors;

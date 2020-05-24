@@ -1,8 +1,6 @@
 package com.fastcampus.admin.controller;
 
-import com.fastcampus.admin.entity.CourseDetail;
-import com.fastcampus.admin.model.http.CourseDetailRequest;
-import com.fastcampus.admin.model.http.CourseRequest;
+import com.fastcampus.admin.model.http.coursedetail.CourseDetailRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,7 +12,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.math.BigDecimal;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;

@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `fastcampus`.`apply_course` (
   `student_id` BIGINT(20) NOT NULL,
   `course_id` BIGINT(20) NOT NULL,
   `status` VARCHAR(50) NOT NULL,
-  `progress_rate` FLOAT NULL,
+  `progress_rate` INT NULL,
   `is_complete` tinyint NULL,
   `expire_at` DATETIME NULL,
   `created_at` DATETIME NOT NULL,
