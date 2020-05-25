@@ -19,38 +19,20 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
+    // TODO Create 로직을 생성해주세요.
     public Course create(CourseRequest courseRequest){
-        Course course = Course.builder()
-                .title(courseRequest.getTitle())
-                .status("REGISTERED")               // TODO ENUM Class로 변환해주세요
-                .teacherName(courseRequest.getTeacherName())
-                .teacherEmail(courseRequest.getTeacherEmail())
-                .teacherPhoneNumber(courseRequest.getTeacherPhoneNumber())
-                .amount(courseRequest.getAmount())
-                .build();
 
-        return courseRepository.save(course);
+       return null;
     }
 
     public Optional<Course> read(Long id){
-        return courseRepository.findById(id);
+        return Optional.empty();
     }
 
     public Course update(CourseRequest courseRequest){
-        return Optional.of(courseRequest.getId())
-                .map(courseRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(course -> course.setTitle(courseRequest.getTitle())
-                        .setTeacherName(courseRequest.getTeacherName())
-                        .setTeacherEmail(courseRequest.getTeacherEmail())
-                        .setTeacherPhoneNumber(courseRequest.getTeacherPhoneNumber())
-                        .setAmount(courseRequest.getAmount()))
-                .map(courseRepository::save)
-                .orElseGet(()->null);
+       return null;
     }
 
     public void delete(Long id){
-        courseRepository.findById(id).ifPresent(courseRepository::delete);
     }
 }

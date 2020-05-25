@@ -20,39 +20,23 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
+    // TODO Create 로직을 생성해주세요.
     public Student create(StudentRequest studentRequest){
-        Student student = Student.builder()
-                .account(studentRequest.getAccount())
-                .password(studentRequest.getPassword())
-                .status(StudentStatus.REGISTERED)
-                .email(studentRequest.getEmail())
-                .phoneNumber(studentRequest.getPhoneNumber())
-                .registeredAt(LocalDateTime.now())
-                .build();
-        return studentRepository.save(student);
+
+        return null;
     }
 
+    // TODO 학생 read 로직을 생성해주세요
     public Optional<Student> read(Long id){
-        return studentRepository.findById(id);
+        return Optional.empty();
     }
 
+    // TODO 학생 업데이트 로직을 생성해 주세요
     public Student update(StudentRequest studentRequest) {
-        return Optional.of(studentRequest.getId())
-                .map(studentRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(student ->{
-                    student.setAccount(studentRequest.getAccount());
-                    student.setPassword(studentRequest.getPassword());
-                    student.setEmail(studentRequest.getEmail());
-                    student.setPhoneNumber(studentRequest.getPhoneNumber());
-                    return student;
-                })
-                .map(studentRepository::save)
-                .orElseGet(()->null);
+        return null;
     }
 
+    // TODO 학생 삭제 로직을 생성해주세요
     public void delete(Long id){
-        studentRepository.findById(id).ifPresent(studentRepository::delete);
     }
 }

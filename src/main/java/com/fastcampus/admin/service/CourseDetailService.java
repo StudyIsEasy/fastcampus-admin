@@ -22,37 +22,22 @@ public class CourseDetailService {
         this.courseRepository = courseRepository;
     }
 
+    // TODO 강좌 상세 Create 로직을 작성해주세요.
     public CourseDetail create(CourseDetailRequest courseDetailRequest) {
-        return Optional.of(courseDetailRequest.getCourseId())
-                .map(courseRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(course -> CourseDetail.builder()
-                        .title(courseDetailRequest.getTitle())
-                        .content(courseDetailRequest.getContent())
-                        .course(course)
-                        .build())
-                .map(courseDetailRepository::save)
-                .orElseGet(()->null);
+        return null;
     }
 
+    // TODO 강좌 상세 read 로직을 작성해주세요.
     public Optional<CourseDetail> read(Long id) {
-        return courseDetailRepository.findById(id);
-
+        return Optional.empty();
     }
 
+    // TODO 강좌 상세 update 로직을 작성해주세요
     public CourseDetail update(CourseDetailRequest courseDetailRequest) {
-        return Optional.of(courseDetailRequest.getId())
-                .map(courseDetailRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(courseDetail -> courseDetail.setTitle(courseDetailRequest.getTitle())
-                        .setContent(courseDetailRequest.getContent()))
-                .map(courseDetailRepository::save)
-                .orElseGet(()->null);
+        return null;
     }
 
+    // todo 강좌 상세 delete 로직을 작성해주세요
     public void delete(Long id) {
-        courseDetailRepository.findById(id).ifPresent(courseDetailRepository::delete);
     }
 }

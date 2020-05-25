@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
+// TODO Apply Course 서비스에 대해서 작성해 주세요 ( 수강강좌)
 @Service
 public class ApplyCourseService {
 
@@ -27,44 +28,26 @@ public class ApplyCourseService {
         this.courseRepository = courseRepository;
     }
 
+    // TODO Apply Course 수강강좌 Create 서비스 로직을 작성해주세요
     public ApplyCourse create(ApplyCourseRequest applyCourseRequest) {
-        return Optional.of(applyCourseRequest.getStudentId())
-                .map(studentRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(student -> courseRepository.findById(applyCourseRequest.getCourseId())
-                        .map( course -> ApplyCourse.builder()
-                                .student(student)
-                                .course(course)
-                                .status("REGISTERED")
-                                .progressRate(0f)
-                                .isComplete(false)
-                                .expireAt(LocalDateTime.now().plusYears(1L))
-                                .build()
-                        )
-                        .orElseGet(()->null))
-                .map(applyCourseRepository::save)
-                .orElseGet(()->null);
+
+        return null;
     }
 
+    // TODO 수강강좌 Read 로직을 작성해주세요
     public Optional<ApplyCourse> read(Long id) {
-        return applyCourseRepository.findById(id);
+        // NotImp
+        return null;
     }
 
+    // TODO 수강생 강좌의 Update 로직을 작성해 주세요
     public ApplyCourse update(ApplyCourseRequest applyCourseRequest) {
-        return Optional.of(applyCourseRequest.getId())
-                .map(applyCourseRepository::findById)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(applyCourse -> applyCourse
-                        .setProgressRate(applyCourseRequest.getProgressRate())
-                        .setIsComplete(applyCourseRequest.getIsComplete())
-                        .setExpireAt(LocalDateTime.parse(applyCourseRequest.getExpireAt())))
-                .map(applyCourseRepository::save)
-                .orElseGet(()->null);
+
+        return null;
     }
 
+    // TODO 수강생 강좌의 Delete 로직을 작성해주세요
     public void delete(Long id) {
-        applyCourseRepository.findById(id).ifPresent(applyCourseRepository::delete);
+
     }
 }
