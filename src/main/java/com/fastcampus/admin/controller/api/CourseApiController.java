@@ -9,36 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+// TODO 서비스와 연동 하기 위한 CRUD 및 Controller 를 작성 하세요
 @RestController
 @RequestMapping("/v1/course")
 public class CourseApiController {
-
-    private final CourseService courseService;
-
-    @Autowired
-    public CourseApiController(CourseService courseService) {
-        this.courseService = courseService;
-    }
-
-    @PostMapping("")
-    public Course create(@RequestBody CourseRequest courseRequest){
-        return courseService.create(courseRequest);
-    }
-
-    @GetMapping("/{id}")
-    public Optional<Course> read(@PathVariable Long id){
-        return courseService.read(id);
-    }
-
-    @PutMapping("")
-    public Course update(@RequestBody CourseRequest courseRequest){
-        return courseService.update(courseRequest);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id){
-        courseService.delete(id);
-        return ResponseEntity.ok().build();
-    }
 
 }
